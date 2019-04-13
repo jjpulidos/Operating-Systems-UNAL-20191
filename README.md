@@ -14,5 +14,5 @@ Each class has a folder assigned with 2 Jupyter Notebooks:
 
 Collaborators:
 
-1) [Cristian Mantilla](github.com/chrisis14240)
-2) [Fernando Morantes](github.com/FernandoMorantes)
+1) [Cristian Mantilla](https://github.com/chrisis14240)
+2) [Fernando Morantes](https://github.com/FernandoMorantes)
