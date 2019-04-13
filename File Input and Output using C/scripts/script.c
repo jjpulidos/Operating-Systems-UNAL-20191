@@ -4,7 +4,7 @@
 
 struct dataType{
     
-    char name[32]; // se debe poner validación del buffer -> 32 chars para que no haya fallo de segmentación
+    char name[32]; // 1st Consideration
     short age;
     float height;
     float weight;
@@ -19,7 +19,7 @@ int chargeData(void* ap){
     printf("name:");
     scanf(" %s", dato -> name);
     printf("age:");
-    scanf(" %i", &dato -> age);
+    scanf(" %hi", &dato -> age);
     printf("height:");
     scanf(" %f", &dato -> height);
     printf("weight:");
@@ -37,23 +37,22 @@ int saveData(void *ap){
     
     FILE *f;
     
-    f = fopen("Data.dat", "w+");
+    f = fopen("binary-files/Data.dat", "w+");
     
     if (f == NULL){
         
-        perror("error abriendo");
+        perror("opening file error");
         exit(-1);
         
     }
     
-    // Se guarda de forma binaria la estructura para mas eficiencia en memoria
-    // Decoders con Ingeniería inversa para leer el binario si no tengo la estructura en mis conocimientos
+    // 2nd and 3rd Considerations
     
     int r = fwrite(dato, sizeof(struct dataType), 1, f);
     
     if (r == 0){
         
-        perror("error escribiendo");
+        perror("writing file error");
         exit(-1);
     }
 
@@ -68,11 +67,11 @@ int readData(void *ap){
 
    FILE *f;
 
-   f = fopen("Data.dat", "r");
+   f = fopen("binary-files/Data.dat", "r");
     
     if (f == NULL){
         
-        perror("error abriendo");
+        perror("Open File Error");
         exit(-1);
         
     }
@@ -83,12 +82,12 @@ int readData(void *ap){
     
      if (r == 0){
         
-        perror("error leyendo");
+        perror("reading file error");
         exit(-1);
     }
 
     printf("name: %s\n", datos -> name);
-    printf("age: %i\n",datos -> age);
+    printf("age: %hi\n",datos -> age);
     printf("height: %f\n",datos-> height);
     printf("weight: %f\n",datos-> weight);
     
@@ -112,12 +111,17 @@ int main(){
     
     
     
-    //No se recomienda pasar struct como parametro de una funcion porque en algunos compiladores presenta problemas
+    //4th Consideration
+    
+    // Uncomment this code block if you want put the data and save in a bin file
+    
     
     chargeData(data);
     saveData(data);
-
-    //
+    
+    
+    
+     // Uncomment the next line if you want read the struct data form a bin file
     readData(data);
     
     free(data);
