@@ -12,9 +12,9 @@ int main(){
         exit(-1);
     }
     if(!p){
-        printf("hola soy hijo\n");
+        printf("I'm a child process\n");
     }else{
-        printf("hola soy padre\n");
+        printf("I'm a father process\n");
     }
 
 

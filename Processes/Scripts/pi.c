@@ -12,14 +12,14 @@ long double piCalc(_Bool odd){
     
     if(odd){
         
-        for(double i = 1.0; i< 1e11; i+=4){
+        for(long double i = 1.0; i< 1e11; i+=4){
              piDecimals += (long double) (4.0/i);
         }
 
         
     }else{
         
-        for(double i = 3; i< 1e11; i+=4){
+        for(long double i = 3.0; i< 1e11; i+=4){
              piDecimals -= (long double)(4.0/i);
         }
     }
@@ -73,12 +73,11 @@ int main(){
         FILE *fd = fopen("Data/pi.dat", "a+");
         long double pi_file;
         fread(&pi_file,sizeof(pi_file),1,fd);
-        //printf("%Lf\n",piPadre);
-        //printf("%Lf\n'",pi_file);
+
         piTotal += piFather+ pi_file;
         
         int Digs = DECIMAL_DIG;
-        printf("%.*Le\n", Digs, piTotal);
+        printf("Pi Constant = %.*Le\n", Digs, piTotal);
         
     }
     

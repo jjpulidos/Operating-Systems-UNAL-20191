@@ -16,3 +16,9 @@ Collaborators:
 
 1) [Cristian Mantilla](https://github.com/chrisis14240)
 2) [Fernando Morantes](https://github.com/FernandoMorantes)
+3) [Luis Baez](https://github.com/lmbaeza)
+
+
+TODO List:
+
+- Translate "Comandos basicos para GNU Linux" and "Recapitulación de Procesos" jupyter notebooks
